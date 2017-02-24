@@ -14,7 +14,7 @@ else:
 #Define the function that distributes the data based on the classwidth
 
         def distributeClassWidth(self):
-            self.iter = 0                                 # Use the iter variable to coordinate what to code run the first time and subsequent times
+            self.iter = 0                                 # Use the iter variable to coordinate what code to run the first time and subsequent times
             self.tempdata = []                            #Get an empty List
             for self.n in range(self.upper):              #Start the loop here
                 if self.iter == 0:                        #Check if this is the first loop
@@ -33,8 +33,18 @@ else:
                     self.tup1 = self.tup2 + 1
             return self.tempdata
 
+# Improve this function later to be able to reference indexes of the returned data
+        def classMidPoint(self):
+            self.distributed_data = self.distributeClassWidth()
+            self.midpoint = []
+            for self.n in self.distributed_data:
+                self.tmp_midpoint = [self.n, float(self.n[0] + self.n[1])/2]
+                self.midpoint.append(self.tmp_midpoint)
+            return self.midpoint
+
         def __str__(self):
             return self.tempdata
+            return self.tmp_midpoint
 
 
 
