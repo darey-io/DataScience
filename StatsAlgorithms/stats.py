@@ -1,4 +1,4 @@
-
+from __future__ import division
 if __name__ == '__main__':
     print('Please import this module before using it')
 else:
@@ -6,11 +6,12 @@ else:
     class frequencyDistribution():
 
         def __init__(self, data):
+
             self.data = data
             self.upper = max(self.data)                 #Get the lower limit of the data
             self.lower = min(self.data)                 #Get the upper limit of the data
             self.classwidth = int(float(self.upper)/self.lower + (self.upper % self.lower > 0))     # Compute the classwidth and Always round up the result
-
+#There is a bug here and we need to handle ZeroDivisionError for self.classwidth
 #Define the function that distributes the data based on the classwidth
 
         def distributeClassWidth(self):
